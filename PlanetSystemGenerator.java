@@ -6,16 +6,23 @@ public class PlanetSystemGenerator extends PApplet{
         PApplet.main("PlanetSystemGenerator");
     }
 
+    Planet sun;
+
     public void settings(){
-        size(300,300);
+        size(600,600);
     }
 
     public void setup(){
         fill(120,50,240);
+        sun = new Planet(this, 50, 0, 0);
+        sun.spawnMoons(5, 1);
     }
 
     public void draw(){
-        ellipse(width/2,height/2,second(),second());
+        background(0);
+        translate(width/2, height/2);
+        sun.show();
+        sun.orbit();
     }
 
 }
